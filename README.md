@@ -1,168 +1,77 @@
-# Health_Tracker_App
-# Health Tracker - Complete Folder Structure
+Features Overview
+🔐 1. User Authentication
 
-## 📁 Project Structure
+Sign Up:
+Users enter their name, email, and password to create an account.
+All user data is securely stored in the MySQL database.
 
-```
-health-tracker/
-├── backend/
-│   ├── server.js                 # Express server with login API
-│   ├── package.json
-│   └── node_modules/
-│
-├── frontend/
-│   ├── public/
-│   │   └── index.html
-│   ├── src/
-│   │   ├── components/
-│   │   │   ├── Login.jsx         # Login component
-│   │   │   ├── WaterTracker.jsx  # Water intake tracker
-│   │   │   ├── FoodTracker.jsx   # Food & calorie tracker
-│   │   │   ├── StepsTracker.jsx  # Steps tracker
-│   │   │   └── WeightTracker.jsx # Weight & BMI tracker
-│   │   ├── utils/
-│   │   │   └── foodCalories.js   # Predefined food calorie list
-│   │   ├── App.jsx               # Main app component
-│   │   ├── index.js
-│   │   └── index.css
-│   ├── package.json
-│   └── node_modules/
-│
-└── README.md
-```
+Login:
+Users log in using their registered email and password.
+Validation is done using backend API calls.
 
-## 🚀 Setup Instructions
+After login, the user is redirected to the Dashboard.
 
-### Backend Setup
+🏠 2. Pages in the App
 
-1. **Create backend folder and install dependencies:**
-```bash
-mkdir backend
-cd backend
-npm init -y
-npm install express cors
-```
+Homepage
+Includes a Get Started button, which takes the user to the signup page.
 
-2. **Create `server.js`** (code provided in separate artifact)
+About Us Page
+Explain why we need to use the Health Tracker website
 
-3. **Run the backend:**
-```bash
-node server.js
-```
-Server runs on `http://localhost:5000`
+Signup Page
+For new user registration.
 
-### Frontend Setup
+Login Page
+For returning users to authenticate.
 
-1. **Create React app:**
-```bash
-npx create-react-app frontend
-cd frontend
-```
+📊 3. Dashboard Features
 
-2. **Install dependencies:**
-```bash
-npm install recharts
-```
+Once the user logs in, they can access all health tools from the dashboard:
 
-3. **Replace `src/App.js`** with the provided React code
+⚖️ Body Mass Index (BMI)
 
-4. **Run the frontend:**
-```bash
-npm start
-```
-App runs on `http://localhost:3000`
+User enters height and weight.
 
-## 📊 Features Implemented
+App calculates and displays the BMI result.
 
-### 1. **User Name Display**
-- Backend returns user's name after login
-- Dashboard shows: "Hello, {name} 👋"
+😴 Sleep Indicator (Line Chart)
 
-### 2. **Water Tracker**
-- Add water intake in ml
-- Tracks today's total
-- Saves to localStorage
-- LINE CHART showing daily water consumption
+User logs their daily sleep hours.
 
-### 3. **Food & Calorie Tracker**
-- Add multiple food items (name + grams)
-- Predefined calorie list (per 100g)
-- Auto-calculates: `(grams / 100) * caloriesPer100g`
-- Edit/Delete functionality
-- Displays total calories
-- Saves to localStorage
+Data is visualized using a line chart to show sleep patterns.
 
-### 4. **Steps Tracker**
-- Manually add steps
-- Shows today's total
-- Saves to localStorage
-- LINE CHART for daily steps
+💧 Water Intake Tracker (Line Chart)
 
-### 5. **Weight Tracker + BMI**
-- Enter weight (kg) and height (m)
-- Saves weight history to localStorage
-- LINE CHART for weight progress
-- Calculates BMI: `weight / (height²)`
-- Displays BMI category (Underweight, Normal, Overweight, Obese)
+User adds the amount of water they drink.
 
-## 💾 LocalStorage Keys
+A line graph displays daily hydration progress.
 
-```javascript
-'waterData'    // Array: [{ date, total }]
-'stepsData'    // Array: [{ date, total }]
-'foodItems'    // Array: [{ food, grams, calories }]
-'weightData'   // Array: [{ date, weight }]
-'userHeight'   // String: user's height in meters
-```
+🍽️ Calorie Tracking
 
-## 🔐 Demo Login Credentials
+Contains a custom food database object.
 
-**User 1:**
-- Email: john@example.com
-- Password: password123
-- Name: John Doe
+User enters how many grams of a food item they ate.
 
-**User 2:**
-- Email: jane@example.com
-- Password: password123
-- Name: Jane Smith
+The app calculates calories based on 100g values.
 
-## 🍎 Predefined Food Calorie List (per 100g)
+Total calorie intake is shown for each entry.
 
-| Food | Calories |
-|------|----------|
-| Rice | 130 |
-| Chicken Breast | 165 |
-| Eggs | 155 |
-| Bread | 265 |
-| Banana | 89 |
-| Apple | 52 |
-| Milk | 42 |
-| Pasta | 131 |
-| Potato | 77 |
-| Salmon | 208 |
-| Broccoli | 34 |
-| Cheese | 402 |
-| Yogurt | 59 |
-| Oats | 389 |
-| Almonds | 579 |
+🛠️ Tech Stack
+Frontend
 
-## 🎨 UI Features
+React.js
 
-- Clean, modern dashboard layout
-- Responsive grid design (2 columns on desktop)
-- Color-coded sections:
-  - 💧 Water: Blue
-  - 🍎 Food: Green
-  - 👟 Steps: Purple
-  - ⚖️ Weight: Orange
-- Recharts line charts for all tracking features
-- Edit/Delete functionality for food items
+Recharts (for line graphs)
 
-## 📝 Notes
+Lucide-react icons
 
-- No extra features added beyond the requirements
-- All health data stored in localStorage (no backend needed for tracking)
-- Backend only used for login and returning user's name
-- Charts show last 7 days of data
-- BMI formula: `weight(kg) / height(m)²`
+Custom CSS
+
+Backend
+
+Node.js (Express)
+
+CORS
+
+MySQL database (for authentication + user data)
