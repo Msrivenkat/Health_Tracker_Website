@@ -1,0 +1,874 @@
+/* Health Tracker Styles */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", sans-serif;
+}
+
+/* Icons */
+.icon-xs {
+  width: 16px;
+  height: 16px;
+}
+.icon-sm {
+  width: 20px;
+  height: 20px;
+}
+.icon-md {
+  width: 24px;
+  height: 24px;
+}
+.icon-lg {
+  width: 32px;
+  height: 32px;
+}
+.stat-icon {
+  width: 24px;
+  height: 24px;
+}
+
+/* Main Container */
+.health-tracker-container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #eff6ff 0%, #e0e7ff 100%);
+  padding: 20px;
+}
+
+.health-tracker-wrapper {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.health-tracker-card {
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+/* Header */
+.health-tracker-header {
+  background: linear-gradient(to right, #2563eb, #4f46e5);
+  padding: 30px;
+  color: white;
+}
+
+.health-tracker-title {
+  font-size: 30px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.health-tracker-subtitle {
+  color: #dbeafe;
+  margin-top: 5px;
+  font-size: 16px;
+}
+
+/* Tabs */
+.tabs-container {
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.tabs-wrapper {
+  display: flex;
+  overflow-x: auto;
+}
+
+.tab-button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 16px 24px;
+  font-weight: 500;
+  color: #6b7280;
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.3s;
+}
+
+.tab-button:hover {
+  color: #374151;
+}
+
+.tab-active {
+  color: #2563eb !important;
+  border-bottom-color: #2563eb !important;
+}
+
+/* Content Area */
+.content-area {
+  padding: 30px;
+}
+
+/* Dashboard */
+.dashboard-content {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.section-title {
+  font-size: 28px;
+  font-weight: bold;
+  color: #1f2937;
+}
+
+/* Buttons */
+.btn-primary,
+.btn-water,
+.btn-sleep,
+.btn-calories {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.btn-primary {
+  background: #4f46e5;
+}
+
+.btn-primary:hover {
+  background: #4338ca;
+}
+
+.btn-water {
+  background: #2563eb;
+}
+
+.btn-water:hover {
+  background: #1d4ed8;
+}
+
+.btn-sleep {
+  background: #9333ea;
+}
+
+.btn-sleep:hover {
+  background: #7e22ce;
+}
+
+.btn-calories {
+  background: #ea580c;
+}
+
+.btn-calories:hover {
+  background: #c2410c;
+}
+
+/* Stats Grid */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 16px;
+}
+
+.stat-card {
+  border-radius: 12px;
+  padding: 20px;
+  border: 1px solid;
+}
+
+.stat-water {
+  background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+  border-color: #bfdbfe;
+}
+
+.stat-sleep {
+  background: linear-gradient(135deg, #faf5ff 0%, #f3e8ff 100%);
+  border-color: #e9d5ff;
+}
+
+.stat-calories {
+  background: linear-gradient(135deg, #fff7ed 0%, #ffedd5 100%);
+  border-color: #fed7aa;
+}
+
+.stat-bmi {
+  background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+  border-color: #bbf7d0;
+}
+
+.stat-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.stat-title {
+  font-weight: 600;
+  color: #374151;
+  font-size: 14px;
+}
+
+.stat-value {
+  font-size: 32px;
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+
+.stat-water .stat-value {
+  color: #2563eb;
+}
+
+.stat-sleep .stat-value {
+  color: #9333ea;
+}
+
+.stat-calories .stat-value {
+  color: #ea580c;
+}
+
+.stat-bmi .stat-value {
+  color: #16a34a;
+}
+
+.stat-empty {
+  color: #9ca3af !important;
+}
+
+.stat-label {
+  font-size: 14px;
+  color: #6b7280;
+}
+
+/* BMI Categories */
+.bmi-underweight {
+  color: #2563eb;
+  font-weight: 600;
+}
+
+.bmi-normal {
+  color: #16a34a;
+  font-weight: 600;
+}
+
+.bmi-overweight {
+  color: #ca8a04;
+  font-weight: 600;
+}
+
+.bmi-obese {
+  color: #dc2626;
+  font-weight: 600;
+}
+
+/* BMI Details Card */
+.bmi-details-card {
+  background: linear-gradient(135deg, #eef2ff 0%, #e0e7ff 100%);
+  border: 1px solid #c7d2fe;
+  border-radius: 12px;
+  padding: 24px;
+}
+
+.card-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #1f2937;
+  margin-bottom: 16px;
+}
+
+.bmi-details-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 16px;
+}
+
+.detail-label {
+  font-size: 14px;
+  color: #6b7280;
+  margin-bottom: 4px;
+}
+
+.detail-value {
+  font-size: 24px;
+  font-weight: bold;
+  color: #4f46e5;
+}
+
+.detail-footer {
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid #c7d2fe;
+}
+
+.detail-timestamp {
+  font-size: 14px;
+  color: #6b7280;
+}
+
+/* Recent Grid */
+.recent-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+}
+
+.recent-card {
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.recent-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.recent-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid #f3f4f6;
+}
+
+.recent-item:last-child {
+  border-bottom: none;
+}
+
+.recent-value {
+  color: #374151;
+  font-weight: 500;
+}
+
+.recent-time {
+  font-size: 14px;
+  color: #6b7280;
+}
+
+.empty-state {
+  text-align: center;
+  color: #6b7280;
+  padding: 20px 0;
+}
+
+/* Page Header */
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.page-subtitle {
+  font-size: 14px;
+  color: #6b7280;
+  margin-top: 4px;
+}
+
+/* Chart Card */
+.chart-card {
+  border-radius: 12px;
+  padding: 24px;
+  margin-bottom: 24px;
+  border: 1px solid;
+}
+
+.chart-water {
+  background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+  border-color: #bfdbfe;
+}
+
+.chart-sleep {
+  background: linear-gradient(135deg, #faf5ff 0%, #f3e8ff 100%);
+  border-color: #e9d5ff;
+}
+
+/* Entries Section */
+.entries-section {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.entries-title {
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: 8px;
+}
+
+.entry-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #f9fafb;
+  padding: 16px;
+  border-radius: 8px;
+}
+
+.entry-value {
+  font-weight: 600;
+  color: #1f2937;
+  margin-bottom: 4px;
+}
+
+.entry-time {
+  font-size: 14px;
+  color: #6b7280;
+}
+
+.entry-quality {
+  font-size: 14px;
+  color: #9333ea;
+  margin-top: 4px;
+}
+
+.btn-delete-icon {
+  color: #ef4444;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  transition: color 0.3s;
+}
+
+.btn-delete-icon:hover {
+  color: #dc2626;
+}
+
+.empty-state-large {
+  text-align: center;
+  color: #6b7280;
+  padding: 40px 0;
+}
+
+/* Meal Cards */
+.meal-card {
+  background: #f9fafb;
+  padding: 16px;
+  border-radius: 8px;
+  margin-bottom: 12px;
+}
+
+.meal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 12px;
+}
+
+.meal-total {
+  font-weight: bold;
+  font-size: 20px;
+  color: #ea580c;
+  margin-bottom: 4px;
+}
+
+.meal-items {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  border-top: 1px solid #e5e7eb;
+  padding-top: 12px;
+}
+
+.meal-item {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+}
+
+.meal-item-name {
+  color: #374151;
+  font-weight: 500;
+}
+
+.meal-item-cal {
+  color: #6b7280;
+}
+
+/* Modal */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: white;
+  border-radius: 12px;
+  max-width: 700px;
+  width: 100%;
+  padding: 24px;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.modal-title {
+  font-size: 20px;
+  font-weight: bold;
+  color: #1f2937;
+}
+
+.modal-close {
+  color: #6b7280;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  transition: color 0.3s;
+}
+
+.modal-close:hover {
+  color: #374151;
+}
+
+.modal-body {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Form Elements */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.form-label {
+  font-size: 14px;
+  font-weight: 500;
+  color: #374151;
+}
+
+.form-input,
+.form-select {
+  width: 100%;
+  padding: 10px 16px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 14px;
+  transition: all 0.3s;
+}
+
+.form-input:focus,
+.form-select:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+/* BMI Preview */
+.bmi-preview {
+  background: #eef2ff;
+  border: 1px solid #c7d2fe;
+  border-radius: 8px;
+  padding: 16px;
+}
+
+.bmi-preview-label {
+  font-size: 14px;
+  color: #374151;
+  margin-bottom: 8px;
+}
+
+.bmi-preview-value {
+  font-size: 30px;
+  font-weight: bold;
+  color: #4f46e5;
+  margin-bottom: 4px;
+}
+
+.bmi-preview-category {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+/* Food Section */
+.food-add-section {
+  border: 2px dashed #d1d5db;
+  border-radius: 8px;
+  padding: 16px;
+  background: #f9fafb;
+}
+
+.food-section-title {
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: 12px;
+}
+
+.food-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.food-search-group {
+  position: relative;
+}
+
+.food-dropdown {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  margin-top: 4px;
+  background: white;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.food-dropdown-item {
+  width: 100%;
+  text-align: left;
+  padding: 12px 16px;
+  background: white;
+  border: none;
+  border-bottom: 1px solid #f3f4f6;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.food-dropdown-item:hover {
+  background: #fff7ed;
+}
+
+.food-dropdown-item:last-child {
+  border-bottom: none;
+}
+
+.food-dropdown-name {
+  font-weight: 500;
+  color: #1f2937;
+  text-transform: capitalize;
+  margin-bottom: 2px;
+}
+
+.food-dropdown-cal {
+  font-size: 14px;
+  color: #6b7280;
+}
+
+.food-input-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.calories-display {
+  width: 100%;
+  padding: 10px 16px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  background: #fff7ed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.calories-number {
+  font-size: 20px;
+  font-weight: bold;
+  color: #ea580c;
+}
+
+.food-calculation {
+  background: #fff7ed;
+  border: 1px solid #fed7aa;
+  border-radius: 8px;
+  padding: 12px;
+}
+
+.food-calc-text {
+  font-size: 14px;
+  color: #374151;
+}
+
+.food-calc-name {
+  font-weight: 600;
+}
+
+.food-calc-total {
+  color: #ea580c;
+  font-weight: bold;
+}
+
+.btn-add-food {
+  width: 100%;
+  background: #f97316;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.btn-add-food:hover {
+  background: #ea580c;
+}
+
+/* Food Items List */
+.food-items-list {
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  padding: 16px;
+}
+
+.food-items-container {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.food-item-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: white;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #e5e7eb;
+}
+
+.food-item-name {
+  font-weight: 500;
+  color: #1f2937;
+  margin-bottom: 4px;
+}
+
+.food-item-details {
+  font-size: 14px;
+  color: #6b7280;
+}
+
+.food-item-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.btn-edit-food {
+  color: #2563eb;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  transition: color 0.3s;
+}
+
+.btn-edit-food:hover {
+  color: #1d4ed8;
+}
+
+.btn-delete-food {
+  color: #ef4444;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  transition: color 0.3s;
+}
+
+.btn-delete-food:hover {
+  color: #dc2626;
+}
+
+.food-total {
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid #e5e7eb;
+}
+
+.food-total-text {
+  font-size: 18px;
+  font-weight: bold;
+  color: #1f2937;
+}
+
+/* Submit Button */
+.btn-submit {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  background: linear-gradient(to right, #2563eb, #4f46e5);
+  color: white;
+  transition: all 0.3s;
+}
+
+.btn-submit:hover {
+  background: linear-gradient(to right, #1d4ed8, #4338ca);
+}
+
+.btn-disabled {
+  background: #d1d5db !important;
+  color: #6b7280 !important;
+  cursor: not-allowed !important;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .health-tracker-container {
+    padding: 12px;
+  }
+
+  .content-area {
+    padding: 16px;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .dashboard-header,
+  .page-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .food-input-row {
+    grid-template-columns: 1fr;
+  }
+}

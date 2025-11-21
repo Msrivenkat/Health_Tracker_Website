@@ -1,0 +1,233 @@
+/* ====== auth page full wallpaper + frosted signup card ====== */
+
+/* background: full-screen soft heart wallpaper */
+.auth-page {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  /* background image - save your image as src/assets/heart-bg.png */
+  background-image: url("../assets/heart.png");
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  /* subtle desaturation so base image isn't too colorful */
+  filter: saturate(0.75) contrast(0.95);
+}
+
+/* darken and blur the wallpaper a bit to keep focus on card */
+.auth-page::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(
+    250,
+    250,
+    250,
+    0.2
+  ); /* light veil so wallpaper is visible but soft */
+  backdrop-filter: blur(6px) brightness(0.92);
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* optional red/silver tint highlight (very subtle) */
+.auth-page::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+      600px 300px at 70% 35%,
+      rgba(220, 20, 60, 0.06),
+      transparent 18%
+    ),
+    radial-gradient(
+      420px 220px at 30% 70%,
+      rgba(180, 180, 200, 0.04),
+      transparent 14%
+    );
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* ====== frosted signup card (centered) ====== */
+.auth-box {
+  position: relative;
+  z-index: 2; /* above the background layers */
+  width: 420px; /* controlled fixed width on desktop */
+  max-width: 90%;
+  padding: 36px 30px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.78); /* frosted glass look */
+  box-shadow: 0 18px 40px rgba(8, 20, 40, 0.12);
+  backdrop-filter: blur(8px) saturate(1.05);
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  text-align: center;
+}
+
+/* header */
+.auth-box h2 {
+  margin: 0 0 18px 0;
+  font-size: 26px;
+  color: #12303f;
+  font-weight: 700;
+}
+
+/* ====== Inputs: same length, centered inside the card ====== */
+.auth-box form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: center;
+}
+
+.auth-box input {
+  width: 93%;
+  padding: 12px 14px;
+  font-size: 15px;
+  border-radius: 10px;
+  border: 1px solid rgba(15, 30, 50, 0.1);
+  outline: none;
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.5);
+  transition: box-shadow 0.18s ease, border-color 0.18s ease,
+    transform 0.12s ease;
+}
+
+/* focus state */
+.auth-box input:focus {
+  border-color: rgba(0, 110, 255, 0.85);
+  box-shadow: 0 6px 18px rgba(2, 80, 220, 0.09);
+  transform: translateY(-1px);
+}
+
+/* button */
+.auth-btn {
+  width: 100%;
+  padding: 12px;
+  margin-top: 4px;
+  font-size: 17px;
+  font-weight: 600;
+  color: #fff;
+  background: linear-gradient(180deg, #007bff, #0061d6);
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 0 10px 24px rgba(0, 95, 230, 0.18);
+  transition: transform 0.15s ease, box-shadow 0.15s ease, opacity 0.15s ease;
+}
+
+.auth-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 28px rgba(0, 95, 230, 0.22);
+}
+
+/* small helper to keep inputs visually the same even if browser autofills */
+.auth-box input:-webkit-autofill,
+.auth-box input:-webkit-autofill:hover,
+.auth-box input:-webkit-autofill:focus {
+  -webkit-box-shadow: 0 0 0px 1000px rgba(255, 255, 255, 0.95) inset;
+  -webkit-text-fill-color: #111;
+}
+
+/* ====== hero placeholder top-right (empty area reserved for your links) ======
+   Add a <div className="auth-hero"></div> inside the Signup JSX if you want to place links later.
+   This reserves visual space at the top-right and will not overlap the card.
+*/
+.auth-hero {
+  position: absolute;
+  top: 18px;
+  right: 24px;
+  z-index: 3;
+  min-width: 220px;
+  height: 46px; /* reserved height for links / small nav */
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 12px;
+  pointer-events: auto;
+}
+
+/* Example styling for links you later add inside .auth-hero */
+.auth-hero a {
+  text-decoration: none;
+  color: rgba(10, 30, 60, 0.9);
+  padding: 6px 10px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 15px;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.auth-hero a:hover {
+  background: rgba(255, 255, 255, 0.9);
+  color: #0066ff;
+}
+
+/* ====== responsive rules ====== */
+@media (max-width: 880px) {
+  .auth-box {
+    width: 360px;
+    padding: 30px 22px;
+  }
+  .auth-box h2 {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 520px) {
+  /* card becomes narrower but keeps full-width inputs */
+  .auth-box {
+    width: 94%;
+    padding: 22px;
+    border-radius: 12px;
+  }
+  .auth-box h2 {
+    font-size: 20px;
+  }
+  .auth-box input {
+    font-size: 15px;
+    padding: 11px 12px;
+  }
+  .auth-btn {
+    font-size: 16px;
+    padding: 11px;
+  }
+  /* keep hero placeholder visible but small */
+  .auth-hero {
+    right: 12px;
+    top: 12px;
+    min-width: 160px;
+    height: 40px;
+  }
+}
+
+.top-right-links {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  display: flex;
+  gap: 20px;
+}
+
+.top-right-links a {
+  color: rgb(12, 0, 0);
+  font-size: 18px;
+  text-decoration: none;
+  padding: 6px 12px;
+  border-radius: 15px;
+  transition: 0.3s ease-in-out;
+}
+
+.top-right-links a:hover {
+  cursor: pointer;
+  color: white;
+  background-color: #ffc400;
+}
